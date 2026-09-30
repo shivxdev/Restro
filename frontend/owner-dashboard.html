@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Owner Dashboard | BiteHub</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/owner-dashboard.css">
+</head>
+
+<body>
+
+    <!-- =========================================
+         SIDEBAR
+    ========================================== -->
+
+    <aside class="sidebar" id="sidebar">
+
+        <!-- Logo -->
+
+        <div class="sidebar-logo">
+
+            <div class="logo-icon">
+                🍽️
+            </div>
+
+            <div class="logo-text">
+                Bite<span>Hub</span>
+            </div>
+
+        </div>
+
+
+        <!-- Navigation -->
+
+        <nav class="sidebar-nav">
+
+            <a href="#" class="nav-item active">
+
+                <span class="nav-icon">📊</span>
+
+                <span>
+                    Dashboard
+                </span>
+
+            </a>
+
+            <a href="#orders" class="nav-item">
+
+                <span class="nav-icon">📦</span>
+
+                <span>
+                    Orders
+                </span>
+
+                <span class="nav-badge" id="sidebarOrderCount">
+                    0
+                </span>
+
+            </a>
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">🍔</span>
+
+                <span>
+                    Menu
+                </span>
+
+            </a>
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">🎁</span>
+
+                <span>
+                    Offers
+                </span>
+
+            </a>
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">👥</span>
+
+                <span>
+                    Customers
+                </span>
+
+            </a>
+
+        </nav>
+
+
+        <!-- Bottom -->
+
+        <div class="sidebar-bottom">
+
+            <a href="#" class="nav-item">
+
+                <span class="nav-icon">⚙️</span>
+
+                <span>
+                    Settings
+                </span>
+
+            </a>
+
+            <button
+                class="logout-btn"
+                id="logoutBtn"
+            >
+
+                <span>
+                    🚪
+                </span>
+
+                Logout
+
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <!-- =========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main class="main-content">
+
+        <!-- TOP BAR -->
+
+        <header class="topbar">
+
+            <button
+                class="mobile-menu-btn"
+                id="mobileMenuBtn"
+            >
+                ☰
+            </button>
+
+
+            <div class="topbar-left">
+
+                <h1>
+                    Dashboard
+                </h1>
+
+                <p>
+                    Manage your restaurant and orders
+                </p>
+
+            </div>
+
+
+            <div class="owner-profile">
+
+                <div class="owner-avatar">
+                    👨‍🍳
+                </div>
+
+                <div class="owner-info">
+
+                    <strong>
+                        Restaurant Owner
+                    </strong>
+
+                    <span>
+                        Owner
+                    </span>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- =========================================
+             DASHBOARD CONTENT
+        ========================================== -->
+
+        <section class="dashboard-content">
+
+
+            <!-- Welcome -->
+
+            <div class="welcome-section">
+
+                <div>
+
+                    <span class="welcome-small">
+                        Good morning 👋
+                    </span>
+
+                    <h2>
+                        Welcome back, Owner!
+                    </h2>
+
+                    <p>
+                        Here's what's happening with your restaurant today.
+                    </p>
+
+                </div>
+
+                <div class="today-date" id="todayDate">
+                    Today
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 STATS
+            ====================================== -->
+
+            <div class="stats-grid">
+
+
+                <!-- Orders -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon orange">
+                        📦
+                    </div>
+
+                    <div class="stat-details">
+
+                        <span>
+                            Total Orders
+                        </span>
+
+                        <strong id="totalOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Pending -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon yellow">
+                        🕐
+                    </div>
+
+                    <div class="stat-details">
+
+                        <span>
+                            Pending Orders
+                        </span>
+
+                        <strong id="pendingOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Accepted -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon green">
+                        ✓
+                    </div>
+
+                    <div class="stat-details">
+
+                        <span>
+                            Accepted Orders
+                        </span>
+
+                        <strong id="acceptedOrders">
+                            0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Revenue -->
+
+                <div class="stat-card">
+
+                    <div class="stat-icon purple">
+                        ₹
+                    </div>
+
+                    <div class="stat-details">
+
+                        <span>
+                            Today's Revenue
+                        </span>
+
+                        <strong id="todayRevenue">
+                            ₹0
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================
+                 ORDERS SECTION
+            ====================================== -->
+
+            <section
+                class="orders-section"
+                id="orders"
+            >
+
+                <div class="section-header">
+
+                    <div>
+
+                        <h2>
+                            Recent Orders
+                        </h2>
+
+                        <p>
+                            Manage incoming customer orders
+                        </p>
+
+                    </div>
+
+
+                    <!-- Search -->
+
+                    <div class="order-search">
+
+                        <span>
+                            🔍
+                        </span>
+
+                        <input
+                            type="text"
+                            id="searchOrders"
+                            placeholder="Search order..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- Filter -->
+
+                <div class="order-filters">
+
+                    <button
+                        class="filter-btn active"
+                        data-filter="all"
+                    >
+                        All
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="pending"
+                    >
+                        Pending
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="accepted"
+                    >
+                        Accepted
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="preparing"
+                    >
+                        Preparing
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="delivered"
+                    >
+                        Delivered
+                    </button>
+
+                    <button
+                        class="filter-btn"
+                        data-filter="rejected"
+                    >
+                        Rejected
+                    </button>
+
+                </div>
+
+
+                <!-- Orders Container -->
+
+                <div
+                    class="orders-container"
+                    id="ordersContainer"
+                >
+
+                    <!-- Orders generated by JS -->
+
+                </div>
+
+
+                <!-- Empty State -->
+
+                <div
+                    class="empty-state"
+                    id="emptyState"
+                >
+
+                    <div class="empty-icon">
+                        📦
+                    </div>
+
+                    <h3>
+                        No orders found
+                    </h3>
+
+                    <p>
+                        Orders matching your selection will appear here.
+                    </p>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- Overlay -->
+
+    <div
+        class="sidebar-overlay"
+        id="sidebarOverlay"
+    ></div>
+
+
+    <!-- JS -->
+
+    <script src="js/owner-dashboard.js"></script>
+
+</body>
+
+</html>
