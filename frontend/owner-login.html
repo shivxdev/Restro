@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Owner Login | BiteHub</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Owner Login CSS -->
+    <link rel="stylesheet" href="css/owner-login.css">
+</head>
+
+<body>
+
+    <div class="owner-login-container">
+
+        <!-- =========================================
+             LEFT SIDE
+        ========================================== -->
+
+        <section class="owner-login-left">
+
+            <!-- Brand -->
+            <div class="owner-brand">
+
+                <div class="owner-brand-icon">
+                    🍽️
+                </div>
+
+                <div class="owner-brand-name">
+                    Bite<span>Hub</span>
+                </div>
+
+            </div>
+
+
+            <!-- Left Content -->
+            <div class="owner-left-content">
+
+                <div class="small-text">
+                    Welcome to your restaurant
+                </div>
+
+                <h1>
+                    Manage<br>
+                    <span>food.</span><br>
+                    Manage<br>
+                    <strong>orders.</strong>
+                </h1>
+
+                <p>
+                    Login to your owner dashboard to manage
+                    your restaurant, view customer orders,
+                    update order status and keep everything
+                    running smoothly.
+                </p>
+
+            </div>
+
+
+            <!-- Main Food Image -->
+            <div class="owner-food-image">
+
+                <img
+                    src="https://tse3.mm.bing.net/th/id/OIP.58Sy4h2oUcQm_uIZ6h5tpgHaEO?r=0&pid=Api&h=220&P=0"
+                    alt="Delicious restaurant food"
+                >
+
+            </div>
+
+
+            <!-- Small Food Image -->
+            <div class="owner-food-small">
+
+                <img
+                    src="https://tse3.mm.bing.net/th/id/OIP.xAxz2Ecb2EO2138VPcqiKQHaE8?r=0&pid=Api&h=220&P=0"
+                    alt="Burger"
+                >
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================================
+             RIGHT SIDE
+        ========================================== -->
+
+        <section class="owner-login-right">
+
+            <div class="owner-login-card">
+
+                <!-- Heading -->
+                <div class="welcome-text">
+                    OWNER PORTAL
+                </div>
+
+                <h2>
+                    Login to your account
+                </h2>
+
+                <p class="subtitle">
+                    Enter your mobile number and password
+                    to continue.
+                </p>
+
+
+                <!-- =================================
+                     LOGIN FORM
+                ================================== -->
+
+                <form id="ownerLoginForm">
+
+
+                    <!-- Mobile Number -->
+                    <div class="form-group">
+
+                        <label for="ownerPhone">
+                            Mobile Number
+                        </label>
+
+                        <div class="input-wrapper phone-wrapper">
+
+                            <div class="phone-code">
+                                🇮🇳 &nbsp; +91
+                            </div>
+
+                            <input
+                                type="tel"
+                                id="ownerPhone"
+                                name="ownerPhone"
+                                placeholder="Enter mobile number"
+                                maxlength="10"
+                                inputmode="numeric"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+                    <div class="form-group">
+
+                        <div class="password-label-row">
+
+                            <label for="ownerPassword">
+                                6-Digit Password
+                            </label>
+
+                            <span class="password-badge">
+                                6 digits only
+                            </span>
+
+                        </div>
+
+                        <div class="input-wrapper">
+
+                            <span class="input-icon">
+                                🔒
+                            </span>
+
+                            <input
+                                type="password"
+                                id="ownerPassword"
+                                name="ownerPassword"
+                                placeholder="Enter 6-digit password"
+                                maxlength="6"
+                                inputmode="numeric"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="toggle-password"
+                                id="togglePassword"
+                                aria-label="Show password"
+                            >
+                                👁
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Remember / Forgot -->
+                    <div class="login-options">
+
+                        <label class="remember-me">
+
+                            <input
+                                type="checkbox"
+                                id="rememberOwner"
+                            >
+
+                            <span>
+                                Remember me
+                            </span>
+
+                        </label>
+
+                        <a
+                            href="#"
+                            class="forgot-password"
+                            id="forgotPassword"
+                        >
+                            Forgot password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- Login Button -->
+                    <button
+                        type="submit"
+                        class="owner-login-btn"
+                    >
+                        Login
+                        <span>→</span>
+                    </button>
+
+
+                    <!-- Error Message -->
+                    <div
+                        class="login-error"
+                        id="loginError"
+                    >
+                        Invalid mobile number or password.
+                    </div>
+
+                </form>
+
+
+                <!-- Back -->
+                <a
+                    href="index.html"
+                    class="back-home"
+                >
+                    ← Back to restaurant
+                </a>
+
+
+                <!-- Security -->
+                <div class="security-text">
+
+                    🔐
+                    <span>
+                        Your owner account information is securely protected.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+
+    <!-- Owner Login JS -->
+    <script src="js/owner-login.js"></script>
+
+</body>
+
+</html>

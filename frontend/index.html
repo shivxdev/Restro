@@ -7,24 +7,28 @@
 
     <title>BiteHub | Delicious Food Delivered</title>
 
-    <!-- Google Font -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link rel="stylesheet"
+    <link
+        rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <!-- CSS -->
+    <!-- Main CSS -->
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
 
-    <!-- ================= TOP BAR ================= -->
+    <!-- =====================================================
+         TOP BAR
+    ====================================================== -->
 
     <div class="top-bar">
 
@@ -34,7 +38,7 @@
         </div>
 
         <div class="top-center">
-            Good Food, Delivered Fast <span>🍕</span>
+            Good Food, Delivered Fast
         </div>
 
         <div class="top-item">
@@ -45,7 +49,9 @@
     </div>
 
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- =====================================================
+         NAVBAR
+    ====================================================== -->
 
     <header class="navbar">
 
@@ -71,51 +77,85 @@
 
             <nav class="nav-links">
 
-                <a href="index.html" class="active">Home</a>
+                <a href="index.html" class="active">
+                    Home
+                </a>
 
-                <a href="#menu">Menu</a>
+                <a href="#menu">
+                    Menu
+                </a>
 
                 <a href="#categories">
                     Categories
                     <i class="fa-solid fa-chevron-down"></i>
                 </a>
 
-                <a href="#offers">Offers</a>
+                <a href="#offers">
+                    Offers
+                </a>
 
-                <a href="#about">About Us</a>
+                <a href="#about">
+                    About Us
+                </a>
 
-                <a href="#contact">Contact</a>
-
-               
+                <a href="#contact">
+                    Contact
+                </a>
 
             </nav>
 
 
-            <!-- Nav Actions -->
+            <!-- Navigation Actions -->
 
             <div class="nav-actions">
 
-                <button class="icon-btn search-btn" title="Search">
+                <!-- Search -->
+
+                <button
+                    class="icon-btn search-btn"
+                    title="Search">
+
                     <i class="fa-solid fa-magnifying-glass"></i>
+
                 </button>
 
-                <!-- <button class="icon-btn" id="profileBtn" title="Profile">
+
+                <!-- Customer Login -->
+
+                <a
+                    href="login.html"
+                    class="nav-user"
+                    title="Customer Login">
+
                     <i class="fa-regular fa-user"></i>
-                </button> -->
-                <a href="login.html" class="nav-user" title="Customer Login">
-                     <i class="fa-regular fa-user"></i>
+
                 </a>
 
-                <button class="cart-btn" id="cartBtn">
+
+                <!-- Cart -->
+
+                <button
+                    class="cart-btn"
+                    id="cartBtn"
+                    title="Cart">
 
                     <i class="fa-solid fa-cart-shopping"></i>
 
-                    <span class="cart-count">0</span>
+                    <span class="cart-count">
+                        0
+                    </span>
 
                 </button>
 
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+
+                <!-- Mobile Menu -->
+
+                <button
+                    class="mobile-menu-btn"
+                    id="mobileMenuBtn">
+
                     <i class="fa-solid fa-bars"></i>
+
                 </button>
 
             </div>
@@ -125,27 +165,56 @@
     </header>
 
 
-    <!-- ================= MOBILE NAV ================= -->
+    <!-- =====================================================
+         MOBILE NAVIGATION
+    ====================================================== -->
 
-    <div class="mobile-nav" id="mobileNav">
+    <div
+        class="mobile-nav"
+        id="mobileNav">
 
-        <a href="index.html">Home</a>
-        <a href="#menu">Menu</a>
-        <a href="#categories">Categories</a>
-        <a href="#offers">Offers</a>
-        <a href="#about">About Us</a>
-        <a href="#contact">Contact</a>
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="#menu">
+            Menu
+        </a>
+
+        <a href="#categories">
+            Categories
+        </a>
+
+        <a href="#offers">
+            Offers
+        </a>
+
+        <a href="#about">
+            About Us
+        </a>
+
+        <a href="#contact">
+            Contact
+        </a>
+
+        <a href="login.html">
+            <i class="fa-regular fa-user"></i>
+            Customer Login
+        </a>
 
     </div>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- =====================================================
+         HERO SECTION
+    ====================================================== -->
 
     <section class="hero">
 
         <div class="hero-container">
 
-            <!-- Hero Content -->
+
+            <!-- HERO CONTENT -->
 
             <div class="hero-content">
 
@@ -154,10 +223,16 @@
                 </span>
 
                 <h1>
+
                     Delivered
                     <br>
+
                     <span>To You</span>
-                    <span class="heart">♡</span>
+
+                    <span class="heart">
+                        ♡
+                    </span>
+
                 </h1>
 
                 <p>
@@ -165,36 +240,61 @@
                     delivered fast & fresh to your door.
                 </p>
 
+
+                <!-- Buttons -->
+
                 <div class="hero-buttons">
 
-                    <a href="#menu" class="primary-btn">
+                    <a
+                        href="#menu"
+                        class="primary-btn">
+
                         Order Now
+
                         <i class="fa-solid fa-arrow-right"></i>
+
                     </a>
 
-                    <a href="#categories" class="secondary-btn">
+                    <a
+                        href="#categories"
+                        class="secondary-btn">
+
                         Explore Menu
+
                     </a>
 
                 </div>
 
 
-                <!-- Customers -->
+                <!-- Customer Rating -->
 
                 <div class="customer-info">
 
                     <div class="customer-images">
 
-                        <div class="customer-avatar">👩🏻</div>
-                        <div class="customer-avatar">👨🏻</div>
-                        <div class="customer-avatar">👩🏼</div>
-                        <div class="customer-avatar">👨🏽</div>
+                        <div class="customer-avatar">
+                            👩🏻
+                        </div>
+
+                        <div class="customer-avatar">
+                            👨🏻
+                        </div>
+
+                        <div class="customer-avatar">
+                            👩🏼
+                        </div>
+
+                        <div class="customer-avatar">
+                            👨🏽
+                        </div>
 
                     </div>
 
                     <div class="customer-rating">
 
-                        <strong>10K+ Happy Customers</strong>
+                        <strong>
+                            10K+ Happy Customers
+                        </strong>
 
                         <div class="stars">
                             ★★★★★
@@ -207,16 +307,21 @@
             </div>
 
 
-            <!-- Hero Image -->
+            <!-- HERO FOOD -->
 
             <div class="hero-image-area">
 
                 <div class="hero-circle"></div>
 
+
                 <div class="hero-food">
 
                     <div class="food-plate">
-                        🍝
+
+                        <img
+                            src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=900&q=90"
+                            alt="Creamy Italian Pasta">
+
                     </div>
 
                 </div>
@@ -227,12 +332,21 @@
                 <div class="delivery-badge">
 
                     <div class="badge-icon">
+
                         <i class="fa-solid fa-motorcycle"></i>
+
                     </div>
 
                     <div>
-                        <strong>Fast Delivery</strong>
-                        <span>30 mins</span>
+
+                        <strong>
+                            Fast Delivery
+                        </strong>
+
+                        <span>
+                            30 mins
+                        </span>
+
                     </div>
 
                 </div>
@@ -241,11 +355,22 @@
                 <!-- Floating Burger -->
 
                 <div class="floating-food burger-float">
-                    🍔
+
+                    <img
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=500&q=90"
+                        alt="Burger">
+
                 </div>
 
+
+                <!-- Floating Fries -->
+
                 <div class="floating-food tomato-float">
-                    🍅
+
+                    <img
+                        src="https://images.unsplash.com/photo-1573080496219-bb080dd4f877?auto=format&fit=crop&w=500&q=90"
+                        alt="French Fries">
+
                 </div>
 
             </div>
@@ -255,11 +380,14 @@
     </section>
 
 
-    <!-- ================= BENEFITS ================= -->
+    <!-- =====================================================
+         BENEFITS
+    ====================================================== -->
 
     <section class="benefits">
 
         <div class="benefits-container">
+
 
             <div class="benefit-item">
 
@@ -268,8 +396,13 @@
                 </div>
 
                 <div>
-                    <h4>Fast Delivery</h4>
-                    <p>Get your food in 30 minutes</p>
+                    <h4>
+                        Fast Delivery
+                    </h4>
+
+                    <p>
+                        Get your food in 30 minutes
+                    </p>
                 </div>
 
             </div>
@@ -282,8 +415,13 @@
                 </div>
 
                 <div>
-                    <h4>Best Quality</h4>
-                    <p>Fresh ingredients & top quality</p>
+                    <h4>
+                        Best Quality
+                    </h4>
+
+                    <p>
+                        Fresh ingredients & top quality
+                    </p>
                 </div>
 
             </div>
@@ -296,8 +434,13 @@
                 </div>
 
                 <div>
-                    <h4>Best Prices</h4>
-                    <p>Great food at affordable prices</p>
+                    <h4>
+                        Best Prices
+                    </h4>
+
+                    <p>
+                        Great food at affordable prices
+                    </p>
                 </div>
 
             </div>
@@ -310,8 +453,13 @@
                 </div>
 
                 <div>
-                    <h4>24/7 Support</h4>
-                    <p>We're here for you anytime</p>
+                    <h4>
+                        24/7 Support
+                    </h4>
+
+                    <p>
+                        We're here for you anytime
+                    </p>
                 </div>
 
             </div>
@@ -324,8 +472,13 @@
                 </div>
 
                 <div>
-                    <h4>Exclusive Offers</h4>
-                    <p>Enjoy discounts & special deals</p>
+                    <h4>
+                        Exclusive Offers
+                    </h4>
+
+                    <p>
+                        Enjoy discounts & special deals
+                    </p>
                 </div>
 
             </div>
@@ -335,20 +488,36 @@
     </section>
 
 
-    <!-- ================= CATEGORIES ================= -->
+    <!-- =====================================================
+         FOOD CATEGORIES
+    ====================================================== -->
 
-    <section class="section categories-section" id="categories">
+    <section
+        class="section categories-section"
+        id="categories">
 
         <div class="section-header">
 
             <div>
-                <span class="section-label">EXPLORE</span>
-                <h2>Food Categories</h2>
+
+                <span class="section-label">
+                    EXPLORE
+                </span>
+
+                <h2>
+                    Food Categories
+                </h2>
+
             </div>
 
-            <a href="#menu" class="view-link">
+            <a
+                href="#menu"
+                class="view-link">
+
                 View all categories
+
                 <i class="fa-solid fa-arrow-right"></i>
+
             </a>
 
         </div>
@@ -357,98 +526,162 @@
         <div class="categories-grid">
 
 
-            <!-- Category -->
+            <!-- Pizza -->
 
             <div class="category-card">
 
-                <div class="category-image pizza-bg">
-                    🍕
+                <div class="category-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=700&q=90"
+                        alt="Pizza">
+
                 </div>
 
                 <div class="category-info">
 
-                    <h3>Pizza</h3>
-                    <span>20+ Items</span>
+                    <h3>
+                        Pizza
+                    </h3>
+
+                    <span>
+                        20+ Items
+                    </span>
 
                 </div>
 
             </div>
 
 
+            <!-- Burger -->
+
             <div class="category-card">
 
-                <div class="category-image burger-bg">
-                    🍔
+                <div class="category-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=90"
+                        alt="Burgers">
+
                 </div>
 
                 <div class="category-info">
 
-                    <h3>Burgers</h3>
-                    <span>15+ Items</span>
+                    <h3>
+                        Burgers
+                    </h3>
+
+                    <span>
+                        15+ Items
+                    </span>
 
                 </div>
 
             </div>
 
 
+            <!-- Italian -->
+
             <div class="category-card">
 
-                <div class="category-image pasta-bg">
-                    🍝
+                <div class="category-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=90"
+                        alt="Italian Pasta">
+
                 </div>
 
                 <div class="category-info">
 
-                    <h3>Italian</h3>
-                    <span>18+ Items</span>
+                    <h3>
+                        Italian
+                    </h3>
+
+                    <span>
+                        18+ Items
+                    </span>
 
                 </div>
 
             </div>
 
 
+            <!-- Sushi -->
+
             <div class="category-card">
 
-                <div class="category-image sushi-bg">
-                    🍣
+                <div class="category-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=700&q=90"
+                        alt="Sushi">
+
                 </div>
 
                 <div class="category-info">
 
-                    <h3>Sushi</h3>
-                    <span>25+ Items</span>
+                    <h3>
+                        Sushi
+                    </h3>
+
+                    <span>
+                        25+ Items
+                    </span>
 
                 </div>
 
             </div>
 
 
+            <!-- Desserts -->
+
             <div class="category-card">
 
-                <div class="category-image dessert-bg">
-                    🍰
+                <div class="category-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=700&q=90"
+                        alt="Desserts">
+
                 </div>
 
                 <div class="category-info">
 
-                    <h3>Desserts</h3>
-                    <span>12+ Items</span>
+                    <h3>
+                        Desserts
+                    </h3>
+
+                    <span>
+                        12+ Items
+                    </span>
 
                 </div>
 
             </div>
 
 
+            <!-- Drinks -->
+
             <div class="category-card">
 
-                <div class="category-image drinks-bg">
-                    🥤
+                <div class="category-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1544145945-f90425340c7e?auto=format&fit=crop&w=700&q=90"
+                        alt="Drinks">
+
                 </div>
 
                 <div class="category-info">
 
-                    <h3>Drinks</h3>
-                    <span>10+ Items</span>
+                    <h3>
+                        Drinks
+                    </h3>
+
+                    <span>
+                        10+ Items
+                    </span>
 
                 </div>
 
@@ -459,20 +692,36 @@
     </section>
 
 
-    <!-- ================= POPULAR DISHES ================= -->
+    <!-- =====================================================
+         POPULAR DISHES
+    ====================================================== -->
 
-    <section class="section popular-section" id="menu">
+    <section
+        class="section popular-section"
+        id="menu">
 
         <div class="section-header">
 
             <div>
-                <span class="section-label">OUR MENU</span>
-                <h2>Popular Dishes</h2>
+
+                <span class="section-label">
+                    OUR MENU
+                </span>
+
+                <h2>
+                    Popular Dishes
+                </h2>
+
             </div>
 
-            <a href="#menu" class="view-link">
+            <a
+                href="#menu"
+                class="view-link">
+
                 View all menu
+
                 <i class="fa-solid fa-arrow-right"></i>
+
             </a>
 
         </div>
@@ -481,33 +730,41 @@
         <div class="food-grid">
 
 
-            <!-- Food Card 1 -->
+            <!-- ================= PIZZA ================= -->
 
             <div class="food-card">
 
-                <div class="food-image pizza-food">
+                <div class="food-image">
 
-                    <span class="veg-badge">VEG</span>
+                    <span class="veg-badge">
+                        VEG
+                    </span>
 
                     <button class="favorite-btn">
                         <i class="fa-regular fa-heart"></i>
                     </button>
 
-                    <div class="food-emoji">🍕</div>
+                    <img
+                        src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=800&q=90"
+                        alt="Cheese Margherita Pizza">
 
                 </div>
 
                 <div class="food-content">
 
-                    <h3>Cheese Margherita Pizza</h3>
+                    <h3>
+                        Cheese Margherita Pizza
+                    </h3>
 
                     <p>
-                        Classic delight with 100% real mozzarella.
+                        Fresh mozzarella, basil & rich tomato sauce.
                     </p>
 
                     <div class="food-bottom">
 
-                        <strong>₹299</strong>
+                        <strong>
+                            ₹249
+                        </strong>
 
                         <button class="add-btn">
                             <i class="fa-solid fa-plus"></i>
@@ -520,33 +777,41 @@
             </div>
 
 
-            <!-- Food Card 2 -->
+            <!-- ================= BURGER ================= -->
 
             <div class="food-card">
 
-                <div class="food-image burger-food">
+                <div class="food-image">
 
-                    <span class="nonveg-badge">NON-VEG</span>
+                    <span class="nonveg-badge">
+                        NON-VEG
+                    </span>
 
                     <button class="favorite-btn">
                         <i class="fa-regular fa-heart"></i>
                     </button>
 
-                    <div class="food-emoji">🍔</div>
+                    <img
+                        src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=800&q=90"
+                        alt="Grilled Chicken Burger">
 
                 </div>
 
                 <div class="food-content">
 
-                    <h3>Grilled Chicken Burger</h3>
+                    <h3>
+                        Grilled Chicken Burger
+                    </h3>
 
                     <p>
-                        Juicy grilled chicken with fresh veggies.
+                        Juicy grilled chicken with fresh vegetables.
                     </p>
 
                     <div class="food-bottom">
 
-                        <strong>₹199</strong>
+                        <strong>
+                            ₹199
+                        </strong>
 
                         <button class="add-btn">
                             <i class="fa-solid fa-plus"></i>
@@ -559,33 +824,41 @@
             </div>
 
 
-            <!-- Food Card 3 -->
+            <!-- ================= PASTA ================= -->
 
             <div class="food-card">
 
-                <div class="food-image pasta-food">
+                <div class="food-image">
 
-                    <span class="veg-badge">VEG</span>
+                    <span class="veg-badge">
+                        VEG
+                    </span>
 
                     <button class="favorite-btn">
                         <i class="fa-regular fa-heart"></i>
                     </button>
 
-                    <div class="food-emoji">🍝</div>
+                    <img
+                        src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=800&q=90"
+                        alt="Creamy Alfredo Pasta">
 
                 </div>
 
                 <div class="food-content">
 
-                    <h3>Creamy Alfredo Pasta</h3>
+                    <h3>
+                        Creamy Alfredo Pasta
+                    </h3>
 
                     <p>
-                        Rich & creamy pasta with chicken & herbs.
+                        Creamy white sauce pasta with herbs & cheese.
                     </p>
 
                     <div class="food-bottom">
 
-                        <strong>₹249</strong>
+                        <strong>
+                            ₹229
+                        </strong>
 
                         <button class="add-btn">
                             <i class="fa-solid fa-plus"></i>
@@ -598,33 +871,41 @@
             </div>
 
 
-            <!-- Food Card 4 -->
+            <!-- ================= SUSHI ================= -->
 
             <div class="food-card">
 
-                <div class="food-image sushi-food">
+                <div class="food-image">
 
-                    <span class="nonveg-badge">NON-VEG</span>
+                    <span class="nonveg-badge">
+                        NON-VEG
+                    </span>
 
                     <button class="favorite-btn">
                         <i class="fa-regular fa-heart"></i>
                     </button>
 
-                    <div class="food-emoji">🍣</div>
+                    <img
+                        src="https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=800&q=90"
+                        alt="Fresh Sushi">
 
                 </div>
 
                 <div class="food-content">
 
-                    <h3>Sushi Platter</h3>
+                    <h3>
+                        Fresh Sushi Platter
+                    </h3>
 
                     <p>
-                        Fresh sushi rolls served with wasabi.
+                        Fresh sushi rolls with authentic flavors.
                     </p>
 
                     <div class="food-bottom">
 
-                        <strong>₹399</strong>
+                        <strong>
+                            ₹399
+                        </strong>
 
                         <button class="add-btn">
                             <i class="fa-solid fa-plus"></i>
@@ -637,25 +918,31 @@
             </div>
 
 
-            <!-- Food Card 5 -->
+            <!-- ================= DESSERT ================= -->
 
             <div class="food-card">
 
-                <div class="food-image dessert-food">
+                <div class="food-image">
 
-                    <span class="veg-badge">VEG</span>
+                    <span class="veg-badge">
+                        VEG
+                    </span>
 
                     <button class="favorite-btn">
                         <i class="fa-regular fa-heart"></i>
                     </button>
 
-                    <div class="food-emoji">🍫</div>
+                    <img
+                        src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=800&q=90"
+                        alt="Chocolate Lava Cake">
 
                 </div>
 
                 <div class="food-content">
 
-                    <h3>Chocolate Lava Cake</h3>
+                    <h3>
+                        Chocolate Lava Cake
+                    </h3>
 
                     <p>
                         Warm chocolate cake with molten center.
@@ -663,7 +950,9 @@
 
                     <div class="food-bottom">
 
-                        <strong>₹149</strong>
+                        <strong>
+                            ₹149
+                        </strong>
 
                         <button class="add-btn">
                             <i class="fa-solid fa-plus"></i>
@@ -680,27 +969,38 @@
     </section>
 
 
-    <!-- ================= OFFER ================= -->
+    <!-- =====================================================
+         OFFER SECTION
+    ====================================================== -->
 
-    <section class="offer-section" id="offers">
+    <section
+        class="offer-section"
+        id="offers">
 
         <div class="offer-container">
 
             <div class="offer-content">
 
-                <span>HUNGRY? WE'VE GOT YOU!</span>
+                <span>
+                    HUNGRY? WE'VE GOT YOU!
+                </span>
 
                 <h2>
-                    Get <strong>20% OFF</strong>
+                    Get
+                    <strong>20% OFF</strong>
                     <br>
                     On Your First Order
                 </h2>
 
                 <div class="coupon">
 
-                    <span>Use Code:</span>
+                    <span>
+                        Use Code:
+                    </span>
 
-                    <strong>WELCOME20</strong>
+                    <strong>
+                        WELCOME20
+                    </strong>
 
                 </div>
 
@@ -712,7 +1012,11 @@
 
 
             <div class="offer-food">
-                🍱
+
+                <img
+                    src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=700&q=90"
+                    alt="Restaurant Food Offer">
+
             </div>
 
         </div>
@@ -720,15 +1024,81 @@
     </section>
 
 
-    <!-- ================= HOW IT WORKS ================= -->
+    <!-- =====================================================
+         ABOUT
+    ====================================================== -->
+
+    <section
+        class="about-section"
+        id="about">
+
+        <div class="about-container">
+
+            <div class="about-image">
+
+                <img
+                    src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1000&q=90"
+                    alt="BiteHub Restaurant">
+
+            </div>
+
+            <div class="about-content">
+
+                <span class="section-label">
+                    ABOUT BITEHUB
+                </span>
+
+                <h2>
+                    Great food.
+                    <br>
+                    Great moments.
+                </h2>
+
+                <p>
+                    At BiteHub, we believe good food brings
+                    people together. We prepare every dish
+                    using fresh ingredients and serve it with
+                    care.
+                </p>
+
+                <p>
+                    From quick bites to complete meals,
+                    discover something delicious for every
+                    craving.
+                </p>
+
+                <a
+                    href="#menu"
+                    class="primary-btn">
+
+                    Explore Our Menu
+
+                    <i class="fa-solid fa-arrow-right"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         HOW IT WORKS
+    ====================================================== -->
 
     <section class="how-section">
 
         <div class="section-title-center">
 
-            <span class="section-label">SIMPLE & EASY</span>
+            <span class="section-label">
+                SIMPLE & EASY
+            </span>
 
-            <h2>How It Works</h2>
+            <h2>
+                How It Works
+            </h2>
 
         </div>
 
@@ -736,15 +1106,21 @@
         <div class="steps-container">
 
 
+            <!-- Step 1 -->
+
             <div class="step">
 
                 <div class="step-icon">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </div>
 
-                <div class="step-number">01</div>
+                <div class="step-number">
+                    01
+                </div>
 
-                <h3>Choose Your Food</h3>
+                <h3>
+                    Choose Your Food
+                </h3>
 
                 <p>
                     Explore our menu & choose your favorite dishes.
@@ -758,15 +1134,21 @@
             </div>
 
 
+            <!-- Step 2 -->
+
             <div class="step">
 
                 <div class="step-icon">
                     <i class="fa-solid fa-bag-shopping"></i>
                 </div>
 
-                <div class="step-number">02</div>
+                <div class="step-number">
+                    02
+                </div>
 
-                <h3>Place Your Order</h3>
+                <h3>
+                    Place Your Order
+                </h3>
 
                 <p>
                     Add to cart & place your order easily.
@@ -780,15 +1162,21 @@
             </div>
 
 
+            <!-- Step 3 -->
+
             <div class="step">
 
                 <div class="step-icon">
                     <i class="fa-solid fa-motorcycle"></i>
                 </div>
 
-                <div class="step-number">03</div>
+                <div class="step-number">
+                    03
+                </div>
 
-                <h3>Fast Delivery</h3>
+                <h3>
+                    Fast Delivery
+                </h3>
 
                 <p>
                     We deliver hot & fresh to your doorstep.
@@ -802,15 +1190,21 @@
             </div>
 
 
+            <!-- Step 4 -->
+
             <div class="step">
 
                 <div class="step-icon">
                     <i class="fa-regular fa-face-smile"></i>
                 </div>
 
-                <div class="step-number">04</div>
+                <div class="step-number">
+                    04
+                </div>
 
-                <h3>Enjoy Your Meal</h3>
+                <h3>
+                    Enjoy Your Meal
+                </h3>
 
                 <p>
                     Sit back, relax & enjoy your delicious meal.
@@ -823,21 +1217,29 @@
     </section>
 
 
-    <!-- ================= OWNER LOGIN ================= -->
+    <!-- =====================================================
+         OWNER LOGIN
+    ====================================================== -->
 
     <section class="owner-section">
 
         <div class="owner-container">
 
             <div class="owner-icon">
+
                 <i class="fa-solid fa-store"></i>
+
             </div>
 
             <div class="owner-text">
 
-                <span>RESTAURANT MANAGEMENT</span>
+                <span>
+                    RESTAURANT MANAGEMENT
+                </span>
 
-                <h2>Are you the restaurant owner?</h2>
+                <h2>
+                    Are you the restaurant owner?
+                </h2>
 
                 <p>
                     Manage your menu, offers and customer orders
@@ -846,9 +1248,14 @@
 
             </div>
 
-            <a href="owner-login.html" class="owner-btn">
+            <a
+                href="owner-login.html"
+                class="owner-btn">
+
                 Owner Login
+
                 <i class="fa-solid fa-arrow-right"></i>
+
             </a>
 
         </div>
@@ -856,17 +1263,24 @@
     </section>
 
 
-    <!-- ================= FOOTER ================= -->
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
 
-    <footer class="footer" id="contact">
+    <footer
+        class="footer"
+        id="contact">
 
         <div class="footer-main">
+
 
             <!-- Newsletter -->
 
             <div class="footer-column newsletter">
 
-                <h3>Stay Updated!</h3>
+                <h3>
+                    Stay Updated!
+                </h3>
 
                 <p>
                     Subscribe to get exclusive offers,
@@ -892,7 +1306,9 @@
 
             <div class="footer-column">
 
-                <h3>Download Our App</h3>
+                <h3>
+                    Download Our App
+                </h3>
 
                 <p>
                     Get the app for a faster
@@ -918,37 +1334,45 @@
 
             <!-- Brand -->
 
-            <div class="footer-brand">
+            <div class="footer-column footer-brand">
 
                 <div class="footer-food">
-                    🍝
+
+                    <img
+                        src="https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=400&q=80"
+                        alt="Food">
+
                 </div>
 
                 <div class="footer-logo">
 
-                    <h2>Bite<span>Hub</span></h2>
+                    <h2>
+                        Bite<span>Hub</span>
+                    </h2>
 
-                    <small>RESTAURANT</small>
+                    <small>
+                        RESTAURANT
+                    </small>
 
                 </div>
 
                 <p>
-                    Good food, great taste
+                    Delicious food made with love,
                     delivered to your doorstep.
                 </p>
 
                 <div class="social-links">
 
                     <a href="#">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a>
-
-                    <a href="#">
                         <i class="fa-brands fa-instagram"></i>
                     </a>
 
                     <a href="#">
-                        <i class="fa-brands fa-twitter"></i>
+                        <i class="fa-brands fa-facebook-f"></i>
+                    </a>
+
+                    <a href="#">
+                        <i class="fa-brands fa-x-twitter"></i>
                     </a>
 
                     <a href="#">
@@ -966,45 +1390,87 @@
 
         <div class="footer-bottom">
 
+
             <div>
 
-                <h4>COMPANY</h4>
+                <h4>
+                    COMPANY
+                </h4>
 
-                <a href="#">About Us</a>
-                <a href="#">Careers</a>
-                <a href="#">Blog</a>
-                <a href="#">Press</a>
+                <a href="#about">
+                    About Us
+                </a>
+
+                <a href="#">
+                    Careers
+                </a>
+
+                <a href="#">
+                    Blog
+                </a>
+
+                <a href="#">
+                    Press
+                </a>
 
             </div>
 
 
             <div>
 
-                <h4>HELP</h4>
+                <h4>
+                    HELP
+                </h4>
 
-                <a href="#">FAQ</a>
-                <a href="#">Shipping & Delivery</a>
-                <a href="#">Returns</a>
-                <a href="#">Track Order</a>
+                <a href="#">
+                    FAQ
+                </a>
+
+                <a href="#">
+                    Shipping & Delivery
+                </a>
+
+                <a href="#">
+                    Returns
+                </a>
+
+                <a href="#">
+                    Track Order
+                </a>
 
             </div>
 
 
             <div>
 
-                <h4>LEGAL</h4>
+                <h4>
+                    LEGAL
+                </h4>
 
-                <a href="#">Terms & Conditions</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Refund Policy</a>
-                <a href="#">Cancellation Policy</a>
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Refund Policy
+                </a>
+
+                <a href="#">
+                    Cancellation Policy
+                </a>
 
             </div>
 
 
             <div>
 
-                <h4>CONTACT US</h4>
+                <h4>
+                    CONTACT US
+                </h4>
 
                 <p>
                     <i class="fa-solid fa-phone"></i>
@@ -1026,6 +1492,8 @@
         </div>
 
 
+        <!-- Copyright -->
+
         <div class="copyright">
 
             <p>
@@ -1039,6 +1507,7 @@
 
 
     <!-- JS -->
+
     <script src="js/main.js"></script>
 
 </body>
