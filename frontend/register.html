@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account | BiteHub Restaurant</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/auth.css">
+</head>
+
+<body>
+
+    <main class="auth-page">
+
+        <!-- ================= LEFT ================= -->
+
+        <section class="auth-visual">
+
+            <a href="index.html" class="auth-logo">
+
+                <div class="auth-logo-icon">
+                    <i class="fa-solid fa-cloche"></i>
+                </div>
+
+                <div>
+                    <h2>Bite<span>Hub</span></h2>
+                    <small>RESTAURANT</small>
+                </div>
+
+            </a>
+
+
+            <div class="visual-content">
+
+                <span class="visual-label">
+                    JOIN BITEHUB
+                </span>
+
+                <h1>
+                    Your favorite
+                    <br>
+                    food is
+                    <span>waiting.</span>
+                </h1>
+
+                <p>
+                    Create your BiteHub account and enjoy
+                    faster ordering, saved addresses and
+                    exclusive food offers.
+                </p>
+
+
+                <div class="visual-food">
+
+                    <div class="visual-circle register-circle">
+                        🍔
+                    </div>
+
+                    <div class="floating-food-one">
+                        🍟
+                    </div>
+
+                    <div class="floating-food-two">
+                        🥤
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="visual-footer">
+                © 2026 BiteHub Restaurant
+            </div>
+
+        </section>
+
+
+        <!-- ================= RIGHT ================= -->
+
+        <section class="auth-form-section">
+
+            <div class="auth-form-container">
+
+                <a href="index.html" class="back-home">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    Back to Home
+                </a>
+
+
+                <div class="form-heading">
+
+                    <span>GET STARTED</span>
+
+                    <h2>Create your account</h2>
+
+                    <p>
+                        Register once and order your favorite
+                        food anytime.
+                    </p>
+
+                </div>
+
+
+                <!-- Register Form -->
+
+                <form id="registerForm" class="auth-form">
+
+                    <!-- Name -->
+
+                    <div class="form-group">
+
+                        <label for="registerName">
+                            Full Name
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-regular fa-user"></i>
+
+                            <input
+                                type="text"
+                                id="registerName"
+                                placeholder="Enter your full name"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Mobile -->
+
+                    <div class="form-group">
+
+                        <label for="registerMobile">
+                            Mobile Number
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-mobile-screen"></i>
+
+                            <span class="country-code">
+                                +91
+                            </span>
+
+                            <input
+                                type="tel"
+                                id="registerMobile"
+                                placeholder="Enter 10-digit mobile number"
+                                maxlength="10"
+                                inputmode="numeric"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <div class="label-row">
+
+                            <label for="registerPassword">
+                                Create 6-Digit Password
+                            </label>
+
+                            <span>
+                                6 digits
+                            </span>
+
+                        </div>
+
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="registerPassword"
+                                placeholder="Create 6-digit password"
+                                maxlength="6"
+                                inputmode="numeric"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="registerPasswordToggle"
+                            >
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Confirm Password -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                        </label>
+
+                        <div class="input-wrapper">
+
+                            <i class="fa-solid fa-lock"></i>
+
+                            <input
+                                type="password"
+                                id="confirmPassword"
+                                placeholder="Re-enter your password"
+                                maxlength="6"
+                                inputmode="numeric"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="password-toggle"
+                                id="confirmPasswordToggle"
+                            >
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Terms -->
+
+                    <label class="terms-label">
+
+                        <input
+                            type="checkbox"
+                            id="terms"
+                            required
+                        >
+
+                        <span>
+                            I agree to the
+                            <a href="#">Terms & Conditions</a>
+                            and
+                            <a href="#">Privacy Policy</a>.
+                        </span>
+
+                    </label>
+
+
+                    <!-- Error -->
+
+                    <div
+                        class="form-message error-message"
+                        id="registerError">
+                    </div>
+
+
+                    <!-- Submit -->
+
+                    <button
+                        type="submit"
+                        class="auth-submit"
+                    >
+
+                        Create Account
+                        <i class="fa-solid fa-arrow-right"></i>
+
+                    </button>
+
+                </form>
+
+
+                <!-- Login -->
+
+                <div class="auth-switch">
+
+                    <span>
+                        Already have an account?
+                    </span>
+
+                    <a href="login.html">
+                        Login
+                    </a>
+
+                </div>
+
+
+                <div class="secure-login">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+                        Your personal information is securely protected.
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script src="js/auth.js"></script>
+
+</body>
+
+</html>
