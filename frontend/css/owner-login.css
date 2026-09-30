@@ -1,0 +1,788 @@
+
+/* =========================================
+   OWNER LOGIN - PREMIUM SPLIT SCREEN
+========================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    min-height: 100vh;
+    background: #ffffff;
+    color: #111111;
+}
+
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.owner-login-container {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+}
+
+/* =========================================
+   LEFT SIDE
+========================================= */
+
+.owner-login-left {
+    width: 40%;
+    min-height: 100vh;
+
+    background: #fce0d0;
+
+    position: relative;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    padding: 55px;
+}
+
+/* Decorative circles */
+
+.owner-login-left::before {
+    content: "";
+    position: absolute;
+
+    width: 420px;
+    height: 420px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.45);
+
+    left: -150px;
+    bottom: -100px;
+}
+
+.owner-login-left::after {
+    content: "";
+    position: absolute;
+
+    width: 170px;
+    height: 170px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.7);
+
+    right: 45px;
+    bottom: 100px;
+}
+
+/* =========================================
+   BRAND
+========================================= */
+
+.owner-brand {
+    position: absolute;
+    top: 35px;
+    left: 50px;
+
+    z-index: 3;
+
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.owner-brand-icon {
+    width: 42px;
+    height: 42px;
+
+    border-radius: 12px;
+
+    background: #ff6738;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+.owner-brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111;
+}
+
+.owner-brand-name span {
+    color: #ff6738;
+}
+
+/* =========================================
+   LEFT CONTENT
+========================================= */
+
+.owner-left-content {
+    position: relative;
+    z-index: 2;
+
+    max-width: 500px;
+}
+
+.owner-left-content .small-text {
+    font-size: 15px;
+    font-weight: 500;
+
+    color: #555;
+
+    margin-bottom: 5px;
+}
+
+.owner-left-content h1 {
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(52px, 5vw, 76px);
+
+    line-height: 0.98;
+
+    font-weight: 700;
+
+    letter-spacing: -3px;
+
+    color: #171717;
+}
+
+.owner-left-content h1 span {
+    color: #f56538;
+}
+
+.owner-left-content p {
+    margin-top: 25px;
+
+    max-width: 390px;
+
+    font-size: 14px;
+    line-height: 1.7;
+
+    color: #555;
+}
+
+/* =========================================
+   FOOD IMAGE
+========================================= */
+
+.owner-food-image {
+    position: absolute;
+
+    z-index: 2;
+
+    width: 300px;
+    height: 300px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    left: 50%;
+    bottom: 65px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    overflow: hidden;
+
+    box-shadow:
+        0 20px 50px rgba(90, 45, 20, 0.08);
+}
+
+.owner-food-image img {
+    width: 82%;
+    height: 82%;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+}
+
+/* Small food circle */
+
+.owner-food-small {
+    position: absolute;
+
+    z-index: 4;
+
+    width: 105px;
+    height: 105px;
+
+    right: 60px;
+    bottom: 90px;
+
+    border-radius: 50%;
+
+    background: #ffffff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    box-shadow:
+        0 15px 35px rgba(80, 40, 20, 0.12);
+}
+
+.owner-food-small img {
+    width: 75%;
+    height: 75%;
+
+    border-radius: 50%;
+
+    object-fit: cover;
+}
+
+/* =========================================
+   RIGHT SIDE
+========================================= */
+
+.owner-login-right {
+    width: 60%;
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 50px;
+}
+
+.owner-login-card {
+    width: 100%;
+    max-width: 525px;
+}
+
+/* =========================================
+   RIGHT HEADER
+========================================= */
+
+.owner-login-card .welcome-text {
+    color: #ff6738;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 12px;
+}
+
+.owner-login-card h2 {
+    font-size: 34px;
+
+    line-height: 1.2;
+
+    font-weight: 700;
+
+    color: #111;
+
+    margin-bottom: 10px;
+}
+
+.owner-login-card .subtitle {
+    color: #777;
+
+    font-size: 14px;
+
+    margin-bottom: 38px;
+}
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label {
+    display: block;
+
+    color: #171717;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    margin-bottom: 9px;
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+.input-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+}
+
+.input-wrapper input {
+    width: 100%;
+    height: 58px;
+
+    border: 1px solid #dddddd;
+
+    border-radius: 10px;
+
+    background: #ffffff;
+
+    color: #222;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    outline: none;
+
+    padding: 0 48px 0 48px;
+
+    transition: 0.25s ease;
+}
+
+.input-wrapper input::placeholder {
+    color: #999;
+}
+
+.input-wrapper input:focus {
+    border-color: #ff6738;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 103, 56, 0.08);
+}
+
+/* =========================================
+   INPUT ICON
+========================================= */
+
+.input-icon {
+    position: absolute;
+
+    left: 17px;
+
+    z-index: 2;
+
+    color: #999;
+
+    font-size: 17px;
+
+    pointer-events: none;
+}
+
+/* =========================================
+   COUNTRY CODE
+========================================= */
+
+.phone-wrapper {
+    display: flex;
+}
+
+.phone-code {
+    position: absolute;
+
+    left: 0;
+    top: 0;
+
+    height: 58px;
+
+    width: 82px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-right: 1px solid #eeeeee;
+
+    color: #333;
+
+    font-size: 14px;
+
+    background: #fff;
+
+    border-radius: 10px 0 0 10px;
+
+    z-index: 3;
+}
+
+.phone-wrapper input {
+    padding-left: 100px;
+}
+
+/* =========================================
+   PASSWORD TOGGLE
+========================================= */
+
+.toggle-password {
+    position: absolute;
+
+    right: 0;
+    top: 0;
+
+    height: 58px;
+    width: 52px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #999;
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-password:hover {
+    color: #ff6738;
+}
+
+/* =========================================
+   PASSWORD BADGE
+========================================= */
+
+.password-label-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.password-badge {
+    background: #fff1ed;
+
+    color: #ff6738;
+
+    padding: 4px 9px;
+
+    border-radius: 5px;
+
+    font-size: 10px;
+}
+
+/* =========================================
+   REMEMBER / FORGOT
+========================================= */
+
+.login-options {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin: 5px 0 25px;
+}
+
+.remember-me {
+    display: flex;
+
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 12px;
+
+    color: #777;
+
+    cursor: pointer;
+}
+
+.remember-me input {
+    width: 16px;
+    height: 16px;
+
+    accent-color: #ff6738;
+
+    cursor: pointer;
+}
+
+.forgot-password {
+    color: #ff6738;
+
+    font-size: 12px;
+
+    text-decoration: none;
+
+    font-weight: 500;
+}
+
+.forgot-password:hover {
+    text-decoration: underline;
+}
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.owner-login-btn {
+    width: 100%;
+    height: 58px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #f96a3a;
+
+    color: #ffffff;
+
+    font-family: "Poppins", sans-serif;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 25px rgba(249, 106, 58, 0.18);
+
+    transition: all 0.25s ease;
+}
+
+.owner-login-btn:hover {
+    background: #f45b29;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 14px 30px rgba(249, 106, 58, 0.25);
+}
+
+.owner-login-btn:active {
+    transform: translateY(0);
+}
+
+/* =========================================
+   ERROR
+========================================= */
+
+.login-error {
+    display: none;
+
+    margin-top: 14px;
+
+    padding: 11px;
+
+    border-radius: 8px;
+
+    background: #fff1f0;
+
+    border: 1px solid #ffd4cf;
+
+    color: #e34e3b;
+
+    font-size: 12px;
+
+    text-align: center;
+}
+
+.login-error.show {
+    display: block;
+}
+
+/* =========================================
+   BACK TO RESTAURANT
+========================================= */
+
+.back-home {
+    display: block;
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #888;
+
+    font-size: 12px;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+}
+
+.back-home:hover {
+    color: #ff6738;
+}
+
+/* =========================================
+   SECURITY
+========================================= */
+
+.security-text {
+    border-top: 1px solid #eeeeee;
+
+    margin-top: 28px;
+
+    padding-top: 20px;
+
+    text-align: center;
+
+    color: #aaa;
+
+    font-size: 10px;
+}
+
+.security-text span {
+    color: #999;
+}
+
+/* =========================================
+   RESPONSIVE - TABLET
+========================================= */
+
+@media (max-width: 1000px) {
+
+    .owner-login-left {
+        width: 42%;
+        padding: 35px;
+    }
+
+    .owner-login-right {
+        width: 58%;
+        padding: 35px;
+    }
+
+    .owner-left-content h1 {
+        font-size: 55px;
+    }
+
+    .owner-food-image {
+        width: 240px;
+        height: 240px;
+    }
+
+    .owner-food-small {
+        width: 80px;
+        height: 80px;
+
+        right: 25px;
+    }
+}
+
+/* =========================================
+   RESPONSIVE - MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .owner-login-container {
+        display: block;
+    }
+
+    .owner-login-left {
+        width: 100%;
+        min-height: 330px;
+
+        padding: 90px 25px 30px;
+
+        justify-content: flex-start;
+    }
+
+    .owner-brand {
+        top: 22px;
+        left: 25px;
+    }
+
+    .owner-left-content {
+        text-align: center;
+
+        margin: 0 auto;
+    }
+
+    .owner-left-content h1 {
+        font-size: 45px;
+
+        letter-spacing: -2px;
+    }
+
+    .owner-left-content p {
+        margin: 15px auto 0;
+    }
+
+    .owner-food-image {
+        width: 150px;
+        height: 150px;
+
+        bottom: -75px;
+    }
+
+    .owner-food-small {
+        width: 65px;
+        height: 65px;
+
+        right: 25px;
+        bottom: 25px;
+    }
+
+    .owner-login-right {
+        width: 100%;
+        min-height: auto;
+
+        padding: 100px 25px 40px;
+    }
+
+    .owner-login-card {
+        max-width: 100%;
+    }
+
+    .owner-login-card h2 {
+        font-size: 28px;
+    }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 420px) {
+
+    .owner-login-left {
+        min-height: 300px;
+    }
+
+    .owner-left-content h1 {
+        font-size: 38px;
+    }
+
+    .owner-login-right {
+        padding: 90px 18px 35px;
+    }
+
+    .owner-login-card h2 {
+        font-size: 25px;
+    }
+
+    .input-wrapper input {
+        height: 54px;
+    }
+
+    .phone-code {
+        height: 54px;
+    }
+
+    .toggle-password {
+        height: 54px;
+    }
+
+    .owner-login-btn {
+        height: 55px;
+    }
+}
