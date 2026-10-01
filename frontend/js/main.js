@@ -95,27 +95,59 @@ favoriteButtons.forEach((button) => {
 });
 
 
-/* ================= CART BUTTON ================= */
+
+/* =========================================
+   CART BUTTON
+========================================= */
 
 const cartBtn = document.getElementById("cartBtn");
 
 if (cartBtn) {
 
-    cartBtn.addEventListener("click", () => {
+    cartBtn.addEventListener("click", function () {
 
-        if (cartCount === 0) {
-
-            alert("Your cart is empty!");
-
-        } else {
-
-            alert(`You have ${cartCount} item(s) in your cart.`);
-
-        }
+        window.location.href = "cart.html";
 
     });
 
 }
+
+
+/* =========================================
+   UPDATE CART COUNT
+========================================= */
+
+function updateCartCount() {
+
+    const cart =
+        JSON.parse(
+            localStorage.getItem("bitehubCart")
+        ) || [];
+
+    const count =
+        cart.reduce(
+            (total, item) =>
+                total + Number(item.quantity),
+            0
+        );
+
+    const cartCount =
+        document.querySelector(".cart-count");
+
+    if (cartCount) {
+        cartCount.textContent = count;
+    }
+
+}
+
+
+/* =========================================
+   LOAD CART COUNT
+========================================= */
+
+updateCartCount();
+
+
 
 
 /* ================= PROFILE BUTTON ================= */
