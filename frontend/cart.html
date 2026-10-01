@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Your Cart | BiteHub</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/cart.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="cart-header">
+
+        <a href="index.html" class="logo">
+            <span>🍴</span>
+            Bite<span>Hub</span>
+        </a>
+
+        <a href="index.html" class="back-btn">
+            ← Continue Shopping
+        </a>
+
+    </header>
+
+
+    <!-- CART -->
+    <main class="cart-page">
+
+        <div class="cart-title">
+
+            <div>
+                <p class="small-title">YOUR ORDER</p>
+                <h1>Your Shopping Cart</h1>
+                <p>Add your favourite food and place your order.</p>
+            </div>
+
+        </div>
+
+
+        <div class="cart-layout">
+
+            <!-- CART ITEMS -->
+            <section class="cart-items-section">
+
+                <div id="cartItems" class="cart-items">
+
+                    <!-- Javascript will load items here -->
+
+                </div>
+
+
+                <!-- EMPTY CART -->
+                <div id="emptyCart" class="empty-cart">
+
+                    <div class="empty-icon">🛒</div>
+
+                    <h2>Your cart is empty</h2>
+
+                    <p>
+                        Looks like you haven't added anything to your cart yet.
+                    </p>
+
+                    <a href="index.html" class="shop-btn">
+                        Explore Menu →
+                    </a>
+
+                </div>
+
+            </section>
+
+
+            <!-- ORDER SUMMARY -->
+            <aside class="order-summary">
+
+                <h2>Order Summary</h2>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <strong id="subtotal">₹0</strong>
+                </div>
+
+                <div class="summary-row">
+                    <span>Delivery Fee</span>
+                    <strong id="deliveryFee">₹40</strong>
+                </div>
+
+                <div class="summary-row discount-row">
+                    <span>Discount</span>
+                    <strong id="discount">- ₹0</strong>
+                </div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-total">
+                    <span>Total</span>
+                    <strong id="total">₹0</strong>
+                </div>
+
+
+                <button id="checkoutBtn" class="checkout-btn">
+                    Proceed to Checkout →
+                </button>
+
+
+                <div class="secure-box">
+                    🔒 Secure & Safe Checkout
+                </div>
+
+            </aside>
+
+        </div>
+
+    </main>
+
+
+    <script src="js/cart.js"></script>
+
+</body>
+
+</html>
