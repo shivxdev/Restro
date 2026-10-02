@@ -1,12 +1,13 @@
+
 /* =========================================
-   OWNER DASHBOARD JAVASCRIPT
+   BITEHUB - OWNER DASHBOARD JAVASCRIPT
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
     /* =========================================
        ELEMENTS
-    ========================================== */
+    ========================================= */
 
     const ordersContainer =
         document.getElementById("ordersContainer");
@@ -52,147 +53,117 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       DEMO ORDERS
-    ========================================== */
-
-    let orders = [
-        {
-            id: "BH1024",
-            customer: "Rahul Sharma",
-            phone: "9876543211",
-            address: "Gomti Nagar, Lucknow",
-            time: "10 mins ago",
-            status: "pending",
-            items: [
-                {
-                    name: "Chicken Biryani",
-                    quantity: 2,
-                    price: 220
-                },
-                {
-                    name: "Cold Coffee",
-                    quantity: 1,
-                    price: 90
-                }
-            ],
-            total: 530
-        },
-
-        {
-            id: "BH1023",
-            customer: "Aman Verma",
-            phone: "9876543212",
-            address: "Hazratganj, Lucknow",
-            time: "25 mins ago",
-            status: "accepted",
-            items: [
-                {
-                    name: "Paneer Tikka",
-                    quantity: 1,
-                    price: 280
-                },
-                {
-                    name: "Butter Naan",
-                    quantity: 2,
-                    price: 60
-                }
-            ],
-            total: 400
-        },
-
-        {
-            id: "BH1022",
-            customer: "Priya Singh",
-            phone: "9876543213",
-            address: "Aliganj, Lucknow",
-            time: "42 mins ago",
-            status: "preparing",
-            items: [
-                {
-                    name: "Creamy Alfredo Pasta",
-                    quantity: 1,
-                    price: 220
-                },
-                {
-                    name: "Garlic Bread",
-                    quantity: 1,
-                    price: 100
-                }
-            ],
-            total: 320
-        },
-
-        {
-            id: "BH1021",
-            customer: "Ankit Gupta",
-            phone: "9876543214",
-            address: "Indira Nagar, Lucknow",
-            time: "1 hour ago",
-            status: "delivered",
-            items: [
-                {
-                    name: "Cheese Pizza",
-                    quantity: 1,
-                    price: 299
-                },
-                {
-                    name: "Coke",
-                    quantity: 2,
-                    price: 60
-                }
-            ],
-            total: 419
-        },
-
-        {
-            id: "BH1020",
-            customer: "Sneha Mishra",
-            phone: "9876543215",
-            address: "Mahanagar, Lucknow",
-            time: "1 hour ago",
-            status: "rejected",
-            items: [
-                {
-                    name: "Veg Burger",
-                    quantity: 2,
-                    price: 180
-                }
-            ],
-            total: 360
-        }
-    ];
-
-
-    /* =========================================
-       LOAD SAVED ORDERS
-    ========================================== */
-
-    const savedOrders =
-        localStorage.getItem("restaurantOrders");
-
-    if (savedOrders) {
-
-        try {
-
-            orders =
-                JSON.parse(savedOrders);
-
-        } catch (error) {
-
-            console.log(
-                "Could not load saved orders."
-            );
-
-        }
-
-    }
-
-
-    /* =========================================
        CURRENT FILTER
     ========================================== */
 
     let currentFilter = "all";
+
+
+    /* =========================================
+       LOAD ORDERS FROM CHECKOUT
+    ========================================== */
+
+    let orders = [];
+
+
+    function loadOrders() {
+
+        const savedOrders =
+            localStorage.getItem("restaurantOrders");
+
+
+        if (!savedOrders) {
+
+            orders = [];
+
+            return;
+
+        }
+
+
+        try {
+
+            orders =
+                JSON.parse(savedOrders) || [];
+
+
+            /* Make sure orders is an array */
+
+            if (!Array.isArray(orders)) {
+
+                orders = [];
+
+            }
+
+        } catch (error) {
+
+            console.error(
+                "Unable to load restaurant orders:",
+                error
+            );
+
+            orders = [];
+
+        }
+
+
+        /* Normalize orders */
+
+        orders =
+            orders.map(order => {
+
+                return {
+
+                    ...order,
+
+                    id:
+                        order.id ||
+                        `BH${Date.now()}`,
+
+                    customer:
+                        order.customer ||
+                        "Guest Customer",
+
+                    phone:
+                        order.phone ||
+                        "Not provided",
+
+                    email:
+                        order.email ||
+                        "",
+
+                    address:
+                        order.address ||
+                        "Address not provided",
+
+                    landmark:
+                        order.landmark ||
+                        "",
+
+                    instructions:
+                        order.instructions ||
+                        "",
+
+                    status:
+                        order.status ||
+                        "pending",
+
+                    items:
+                        Array.isArray(order.items)
+                            ? order.items
+                            : [],
+
+                    total:
+                        Number(order.total) || 0
+
+                };
+
+            });
+
+    }
+
+
+    loadOrders();
 
 
     /* =========================================
@@ -210,19 +181,103 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
+       FORMAT ORDER TIME
+    ========================================== */
+
+    function getOrderTime(order) {
+
+        if (!order.createdAt) {
+
+            return "Recently";
+
+        }
+
+
+        const orderDate =
+            new Date(order.createdAt);
+
+
+        if (isNaN(orderDate.getTime())) {
+
+            return "Recently";
+
+        }
+
+
+        const now =
+            new Date();
+
+
+        const difference =
+            Math.floor(
+                (now - orderDate) / 60000
+            );
+
+
+        if (difference < 1) {
+
+            return "Just now";
+
+        }
+
+
+        if (difference < 60) {
+
+            return `${difference} mins ago`;
+
+        }
+
+
+        const hours =
+            Math.floor(
+                difference / 60
+            );
+
+
+        if (hours < 24) {
+
+            return `${hours} hour${hours > 1 ? "s" : ""} ago`;
+
+        }
+
+
+        return orderDate.toLocaleDateString(
+            "en-IN",
+            {
+                day: "numeric",
+                month: "short",
+                year: "numeric"
+            }
+        );
+
+    }
+
+
+    /* =========================================
        UPDATE DATE
     ========================================== */
 
     function updateDate() {
 
-        const now = new Date();
+        if (!todayDate) return;
+
+
+        const now =
+            new Date();
+
 
         const options = {
+
             weekday: "long",
+
             day: "numeric",
+
             month: "short",
+
             year: "numeric"
+
         };
+
 
         todayDate.textContent =
             now.toLocaleDateString(
@@ -231,6 +286,7 @@ document.addEventListener("DOMContentLoaded", () => {
             );
 
     }
+
 
     updateDate();
 
@@ -241,12 +297,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function updateStats() {
 
-        const total = orders.length;
+        const total =
+            orders.length;
+
 
         const pending =
             orders.filter(
-                order => order.status === "pending"
+                order =>
+                    order.status === "pending"
             ).length;
+
 
         const accepted =
             orders.filter(
@@ -255,30 +315,99 @@ document.addEventListener("DOMContentLoaded", () => {
                     order.status === "preparing"
             ).length;
 
-        const revenue =
+
+        /* Today's revenue only */
+
+        const today =
+            new Date();
+
+
+        const todayRevenueAmount =
             orders
-                .filter(
-                    order =>
-                        order.status !== "rejected"
-                )
+                .filter(order => {
+
+                    if (
+                        order.status === "rejected"
+                    ) {
+
+                        return false;
+
+                    }
+
+
+                    if (!order.createdAt) {
+
+                        return false;
+
+                    }
+
+
+                    const orderDate =
+                        new Date(
+                            order.createdAt
+                        );
+
+
+                    return (
+                        orderDate.getDate() ===
+                            today.getDate() &&
+
+                        orderDate.getMonth() ===
+                            today.getMonth() &&
+
+                        orderDate.getFullYear() ===
+                            today.getFullYear()
+                    );
+
+                })
                 .reduce(
                     (sum, order) =>
-                        sum + order.total,
+                        sum +
+                        (Number(order.total) || 0),
                     0
                 );
 
 
-        totalOrders.textContent = total;
+        if (totalOrders) {
 
-        pendingOrders.textContent = pending;
+            totalOrders.textContent =
+                total;
 
-        acceptedOrders.textContent = accepted;
+        }
 
-        todayRevenue.textContent =
-            `₹${revenue.toLocaleString("en-IN")}`;
 
-        sidebarOrderCount.textContent =
-            pending;
+        if (pendingOrders) {
+
+            pendingOrders.textContent =
+                pending;
+
+        }
+
+
+        if (acceptedOrders) {
+
+            acceptedOrders.textContent =
+                accepted;
+
+        }
+
+
+        if (todayRevenue) {
+
+            todayRevenue.textContent =
+                `₹${todayRevenueAmount.toLocaleString(
+                    "en-IN"
+                )}`;
+
+        }
+
+
+        if (sidebarOrderCount) {
+
+            sidebarOrderCount.textContent =
+                pending;
+
+        }
 
     }
 
@@ -303,20 +432,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
         };
 
-        return statusMap[status] || status;
+
+        return (
+            statusMap[status] ||
+            "Pending"
+        );
 
     }
 
 
     /* =========================================
-       ORDER ACTIONS
+       ACTION BUTTONS
     ========================================== */
 
     function getActionButtons(order) {
 
-        if (order.status === "pending") {
+        if (
+            order.status === "pending"
+        ) {
 
             return `
+
                 <button
                     class="order-action-btn accept-btn"
                     data-action="accept"
@@ -325,6 +461,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     ✓ Accept Order
                 </button>
 
+
                 <button
                     class="order-action-btn reject-btn"
                     data-action="reject"
@@ -332,14 +469,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 >
                     ✕ Reject
                 </button>
+
             `;
 
         }
 
 
-        if (order.status === "accepted") {
+        if (
+            order.status === "accepted"
+        ) {
 
             return `
+
                 <button
                     class="order-action-btn prepare-btn"
                     data-action="prepare"
@@ -347,14 +488,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 >
                     🍳 Start Preparing
                 </button>
+
             `;
 
         }
 
 
-        if (order.status === "preparing") {
+        if (
+            order.status === "preparing"
+        ) {
 
             return `
+
                 <button
                     class="order-action-btn deliver-btn"
                     data-action="deliver"
@@ -362,6 +507,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 >
                     ✓ Mark Delivered
                 </button>
+
             `;
 
         }
@@ -378,13 +524,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function renderOrders() {
 
+        if (!ordersContainer) return;
+
+
         const searchTerm =
-            searchOrders.value
-                .trim()
-                .toLowerCase();
+            searchOrders
+                ? searchOrders.value
+                    .trim()
+                    .toLowerCase()
+                : "";
 
 
-        let filteredOrders =
+        const filteredOrders =
             orders.filter(order => {
 
                 const matchesFilter =
@@ -393,15 +544,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
                 const matchesSearch =
-                    order.id
-                        .toLowerCase()
-                        .includes(searchTerm) ||
 
-                    order.customer
+                    String(order.id)
                         .toLowerCase()
-                        .includes(searchTerm) ||
+                        .includes(searchTerm)
 
-                    order.phone
+                    ||
+
+                    String(order.customer)
+                        .toLowerCase()
+                        .includes(searchTerm)
+
+                    ||
+
+                    String(order.phone)
+                        .toLowerCase()
+                        .includes(searchTerm)
+
+                    ||
+
+                    String(order.address)
+                        .toLowerCase()
                         .includes(searchTerm);
 
 
@@ -416,42 +579,65 @@ document.addEventListener("DOMContentLoaded", () => {
         ordersContainer.innerHTML = "";
 
 
-        if (filteredOrders.length === 0) {
+        if (
+            filteredOrders.length === 0
+        ) {
 
-            emptyState.classList.add("show");
+            if (emptyState) {
+
+                emptyState.classList.add(
+                    "show"
+                );
+
+            }
 
             return;
 
         }
 
 
-        emptyState.classList.remove("show");
+        if (emptyState) {
+
+            emptyState.classList.remove(
+                "show"
+            );
+
+        }
 
 
         filteredOrders.forEach(order => {
 
+            /* ================= ITEMS ================= */
+
             const itemHTML =
-                order.items.map(item => {
+                order.items
+                    .map(item => {
 
-                    return `
-                        <div class="order-item">
+                        return `
 
-                            <span>
-                                ${item.name}
-                            </span>
+                            <div class="order-item">
 
-                            <span class="quantity">
-                                × ${item.quantity}
-                            </span>
+                                <span>
+                                    ${item.name}
+                                </span>
 
-                        </div>
-                    `;
+                                <span class="quantity">
+                                    × ${item.quantity}
+                                </span>
 
-                }).join("");
+                            </div>
 
+                        `;
+
+                    })
+                    .join("");
+
+
+            /* ================= CARD ================= */
 
             const card =
                 document.createElement("div");
+
 
             card.className =
                 "order-card";
@@ -459,7 +645,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             card.innerHTML = `
 
-                <!-- Order Header -->
+                <!-- ORDER HEADER -->
 
                 <div class="order-header">
 
@@ -470,10 +656,11 @@ document.addEventListener("DOMContentLoaded", () => {
                         </strong>
 
                         <span class="order-time">
-                            ${order.time}
+                            ${getOrderTime(order)}
                         </span>
 
                     </div>
+
 
                     <span class="status ${order.status}">
                         ${getStatusText(order.status)}
@@ -482,11 +669,11 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
 
-                <!-- Order Body -->
+                <!-- ORDER BODY -->
 
                 <div class="order-body">
 
-                    <!-- Customer -->
+                    <!-- CUSTOMER -->
 
                     <div class="customer-info">
 
@@ -494,11 +681,13 @@ document.addEventListener("DOMContentLoaded", () => {
                             👤
                         </div>
 
+
                         <div class="customer-details">
 
                             <strong>
                                 ${order.customer}
                             </strong>
+
 
                             <span>
                                 ${order.phone}
@@ -509,7 +698,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
 
 
-                    <!-- Items -->
+                    <!-- ITEMS -->
 
                     <div class="order-items">
 
@@ -518,7 +707,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     </div>
 
 
-                    <!-- Amount -->
+                    <!-- TOTAL -->
 
                     <div class="order-amount">
 
@@ -526,8 +715,10 @@ document.addEventListener("DOMContentLoaded", () => {
                             Total Amount
                         </span>
 
+
                         <strong>
-                            ₹${order.total}
+                            ₹${Number(order.total)
+                                .toLocaleString("en-IN")}
                         </strong>
 
                     </div>
@@ -535,7 +726,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
 
-                <!-- Address -->
+                <!-- ADDRESS -->
 
                 <div class="order-address">
 
@@ -548,7 +739,53 @@ document.addEventListener("DOMContentLoaded", () => {
                 </div>
 
 
-                <!-- Actions -->
+                ${
+                    order.landmark
+                        ? `
+                            <div class="order-address">
+                                🏠
+                                <span>
+                                    Landmark:
+                                    ${order.landmark}
+                                </span>
+                            </div>
+                        `
+                        : ""
+                }
+
+
+                ${
+                    order.instructions
+                        ? `
+                            <div class="order-address">
+                                📝
+                                <span>
+                                    ${order.instructions}
+                                </span>
+                            </div>
+                        `
+                        : ""
+                }
+
+
+                <!-- PAYMENT -->
+
+                ${
+                    order.payment
+                        ? `
+                            <div class="order-address">
+                                💳
+                                <span>
+                                    Payment:
+                                    ${order.payment}
+                                </span>
+                            </div>
+                        `
+                        : ""
+                }
+
+
+                <!-- ACTIONS -->
 
                 <div class="order-actions">
 
@@ -559,7 +796,9 @@ document.addEventListener("DOMContentLoaded", () => {
             `;
 
 
-            ordersContainer.appendChild(card);
+            ordersContainer.appendChild(
+                card
+            );
 
         });
 
@@ -567,106 +806,133 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     /* =========================================
-       ORDER ACTION
+       ORDER ACTIONS
     ========================================== */
 
-    ordersContainer.addEventListener(
-        "click",
-        (event) => {
+    if (ordersContainer) {
 
-            const button =
-                event.target.closest(
-                    ".order-action-btn"
-                );
+        ordersContainer.addEventListener(
+            "click",
+            (event) => {
 
-            if (!button) return;
-
-
-            const action =
-                button.dataset.action;
-
-            const orderId =
-                button.dataset.id;
-
-
-            const order =
-                orders.find(
-                    item =>
-                        item.id === orderId
-                );
-
-            if (!order) return;
-
-
-            /* ACCEPT */
-
-            if (action === "accept") {
-
-                order.status = "accepted";
-
-                alert(
-                    `Order #${order.id} accepted successfully.`
-                );
-
-            }
-
-
-            /* REJECT */
-
-            else if (action === "reject") {
-
-                const confirmReject =
-                    confirm(
-                        `Are you sure you want to reject order #${order.id}?`
+                const button =
+                    event.target.closest(
+                        ".order-action-btn"
                     );
 
-                if (!confirmReject) {
-                    return;
+
+                if (!button) return;
+
+
+                const action =
+                    button.dataset.action;
+
+
+                const orderId =
+                    button.dataset.id;
+
+
+                const order =
+                    orders.find(
+                        item =>
+                            item.id === orderId
+                    );
+
+
+                if (!order) return;
+
+
+                /* ACCEPT */
+
+                if (
+                    action === "accept"
+                ) {
+
+                    order.status =
+                        "accepted";
+
+
+                    alert(
+                        `Order #${order.id} accepted successfully.`
+                    );
+
                 }
 
-                order.status = "rejected";
 
-                alert(
-                    `Order #${order.id} has been rejected.`
-                );
+                /* REJECT */
+
+                else if (
+                    action === "reject"
+                ) {
+
+                    const confirmReject =
+                        confirm(
+                            `Are you sure you want to reject order #${order.id}?`
+                        );
+
+
+                    if (!confirmReject) {
+
+                        return;
+
+                    }
+
+
+                    order.status =
+                        "rejected";
+
+
+                    alert(
+                        `Order #${order.id} has been rejected.`
+                    );
+
+                }
+
+
+                /* PREPARING */
+
+                else if (
+                    action === "prepare"
+                ) {
+
+                    order.status =
+                        "preparing";
+
+
+                    alert(
+                        `Order #${order.id} is now being prepared.`
+                    );
+
+                }
+
+
+                /* DELIVERED */
+
+                else if (
+                    action === "deliver"
+                ) {
+
+                    order.status =
+                        "delivered";
+
+
+                    alert(
+                        `Order #${order.id} marked as delivered.`
+                    );
+
+                }
+
+
+                saveOrders();
+
+                updateStats();
+
+                renderOrders();
 
             }
+        );
 
-
-            /* PREPARING */
-
-            else if (action === "prepare") {
-
-                order.status = "preparing";
-
-                alert(
-                    `Order #${order.id} is now being prepared.`
-                );
-
-            }
-
-
-            /* DELIVERED */
-
-            else if (action === "deliver") {
-
-                order.status = "delivered";
-
-                alert(
-                    `Order #${order.id} marked as delivered.`
-                );
-
-            }
-
-
-            saveOrders();
-
-            updateStats();
-
-            renderOrders();
-
-        }
-    );
+    }
 
 
     /* =========================================
@@ -709,67 +975,161 @@ document.addEventListener("DOMContentLoaded", () => {
        SEARCH
     ========================================== */
 
-    searchOrders.addEventListener(
-        "input",
-        renderOrders
-    );
+    if (searchOrders) {
+
+        searchOrders.addEventListener(
+            "input",
+            renderOrders
+        );
+
+    }
 
 
     /* =========================================
        MOBILE SIDEBAR
     ========================================== */
 
-    mobileMenuBtn.addEventListener(
-        "click",
-        () => {
+    if (
+        mobileMenuBtn &&
+        sidebar
+    ) {
 
-            sidebar.classList.add("open");
+        mobileMenuBtn.addEventListener(
+            "click",
+            () => {
 
-            sidebarOverlay.classList.add("show");
+                sidebar.classList.add(
+                    "open"
+                );
 
-        }
-    );
+
+                if (sidebarOverlay) {
+
+                    sidebarOverlay.classList.add(
+                        "show"
+                    );
+
+                }
+
+            }
+        );
+
+    }
 
 
-    sidebarOverlay.addEventListener(
-        "click",
-        () => {
+    if (sidebarOverlay) {
 
-            sidebar.classList.remove("open");
+        sidebarOverlay.addEventListener(
+            "click",
+            () => {
 
-            sidebarOverlay.classList.remove("show");
+                if (sidebar) {
 
-        }
-    );
+                    sidebar.classList.remove(
+                        "open"
+                    );
+
+                }
+
+
+                sidebarOverlay.classList.remove(
+                    "show"
+                );
+
+            }
+        );
+
+    }
 
 
     /* =========================================
        LOGOUT
     ========================================== */
 
-    logoutBtn.addEventListener(
-        "click",
-        () => {
+    if (logoutBtn) {
 
-            const confirmLogout =
-                confirm(
-                    "Are you sure you want to logout?"
+        logoutBtn.addEventListener(
+            "click",
+            () => {
+
+                const confirmLogout =
+                    confirm(
+                        "Are you sure you want to logout?"
+                    );
+
+
+                if (!confirmLogout) {
+
+                    return;
+
+                }
+
+
+                localStorage.removeItem(
+                    "owner"
                 );
 
-            if (!confirmLogout) {
-                return;
+
+                sessionStorage.removeItem(
+                    "owner"
+                );
+
+
+                window.location.href =
+                    "owner-login.html";
+
+            }
+        );
+
+    }
+
+
+    /* =========================================
+       AUTO REFRESH ORDERS
+    ========================================== */
+
+    setInterval(() => {
+
+        const latestOrders =
+            localStorage.getItem(
+                "restaurantOrders"
+            );
+
+
+        if (!latestOrders) return;
+
+
+        try {
+
+            const parsedOrders =
+                JSON.parse(
+                    latestOrders
+                );
+
+
+            if (
+                JSON.stringify(parsedOrders) !==
+                JSON.stringify(orders)
+            ) {
+
+                loadOrders();
+
+                updateStats();
+
+                renderOrders();
+
             }
 
+        } catch (error) {
 
-            localStorage.removeItem("owner");
-
-            sessionStorage.removeItem("owner");
-
-            window.location.href =
-                "owner-login.html";
+            console.error(
+                "Unable to refresh orders:",
+                error
+            );
 
         }
-    );
+
+    }, 3000);
 
 
     /* =========================================
